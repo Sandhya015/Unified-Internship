@@ -1,14 +1,11 @@
-function searchPosts() {
-    // Implement your search logic here
-}
+// script.js
 
 function filterProduct() {
-    const dropdown = document.getElementById('product-dropdown');
-    const selectedProduct = dropdown.value;
-    const posts = document.querySelectorAll('.blog-post');
+    const selectedCategory = document.getElementById("product-dropdown").value;
+    const posts = document.querySelectorAll(".blog-post");
 
     posts.forEach(post => {
-        if (selectedProduct === "" || post.dataset.category === selectedProduct) {
+        if (selectedCategory === "" || post.getAttribute("data-category") === selectedCategory) {
             post.style.display = "block";
         } else {
             post.style.display = "none";
@@ -16,35 +13,36 @@ function filterProduct() {
     });
 }
 
-function searchProduct() {
-    const searchBar = document.getElementById('search-bar');
-    const searchQuery = searchBar.value.toLowerCase();
-    const posts = document.querySelectorAll('.blog-post');
+function searchPosts() {
+    const query = document.getElementById("search-bar").value.toLowerCase();
+    const posts = document.querySelectorAll(".blog-post");
 
     posts.forEach(post => {
-        const postContent = post.textContent.toLowerCase();
-        if (postContent.includes(searchQuery)) {
+        const title = post.querySelector("h2").textContent.toLowerCase();
+        const content = post.querySelector("p").textContent.toLowerCase();
+
+        if (title.includes(query) || content.includes(query)) {
             post.style.display = "block";
         } else {
             post.style.display = "none";
         }
     });
+}
+
+function share(postTitle) {
+    alert("Share " + postTitle);
 }
 
 function addComment(event, commentContainerId) {
     event.preventDefault();
+    const name = event.target.querySelector("input").value;
+    const message = event.target.querySelector("textarea").value;
+
     const commentContainer = document.getElementById(commentContainerId);
-    const name = event.target.querySelector('input').value;
-    const message = event.target.querySelector('textarea').value;
+    const newComment = document.createElement("div");
+    newComment.classList.add("comment");
+    newComment.innerHTML = `<p><strong>${name}:</strong> ${message}</p>`;
+    commentContainer.appendChild(newComment);
 
-    const comment = document.createElement('div');
-    comment.className = 'comment';
-    comment.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
-
-    commentContainer.appendChild(comment);
     event.target.reset();
-}
-
-function share(postTitle) {
-    alert(`Shared: ${postTitle}`);
 }
