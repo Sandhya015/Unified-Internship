@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#post1">Tourism</a></li>
+                <li><a href="#post2">Education</a></li>
+                <li><a href="#post3">Food</a></li>
+            </ul>
+        </nav>
+        <div id="search-container">
+            <input type="text" id="search-bar" placeholder="Search blog posts..." oninput="searchPosts()">
+            <select id="product-dropdown" onchange="filterProduct()">
+                <option value="">Select Product</option>
+                <option value="Product1">Product 1</option>
+                <option value="Product2">Product 2</option>
+                <option value="Product3">Product 3</option>
+            </select>
+            <button id="search-button" onclick="searchProduct()">🔍</button>
+        </div>
+    </header>
+    <main>
+        <article id="post1" class="blog-post" data-category="Product1">
+            <h2>Post Title 1</h2>
+            <p>Date: 2024-07-01</p>
+            <img src="placeholder1.jpg" alt="Image for Post 1">
+            <p>Content for the first blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 1')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post1-comments')">
+                    <input type="text" id="post1-name" placeholder="Your name" required>
+                    <textarea id="post1-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post1-comments"></div>
+            </section>
+        </article>
+        <article id="post2" class="blog-post" data-category="Product2">
+            <h2>Post Title 2</h2>
+            <p>Date: 2024-07-02</p>
+            <img src="placeholder2.jpg" alt="Image for Post 2">
+            <p>Content for the second blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 2')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post2-comments')">
+                    <input type="text" id="post2-name" placeholder="Your name" required>
+                    <textarea id="post2-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post2-comments"></div>
+            </section>
+        </article>
+        <article id="post3" class="blog-post" data-category="Product3">
+            <h2>Post Title 3</h2>
+            <p>Date: 2024-07-03</p>
+            <img src="placeholder3.jpg" alt="Image for Post 3">
+            <p>Content for the third blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 3')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post3-comments')">
+                    <input type="text" id="post3-name" placeholder="Your name" required>
+                    <textarea id="post3-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post3-comments"></div>
+
+                
+            </section>
+        </article>
+    
+         
+    </main>
+
+    <main>
+        <article id="post1" class="blog-post" data-category="Product1">
+            <h2>Post Title 1</h2>
+            <p>Date: 2024-07-01</p>
+            <img src="placeholder1.jpg" alt="Image for Post 1">
+            <p>Content for the first blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 1')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post1-comments')">
+                    <input type="text" id="post1-name" placeholder="Your name" required>
+                    <textarea id="post1-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post1-comments"></div>
+            </section>
+        </article>
+        <article id="post2" class="blog-post" data-category="Product2">
+            <h2>Post Title 2</h2>
+            <p>Date: 2024-07-02</p>
+            <img src="placeholder2.jpg" alt="Image for Post 2">
+            <p>Content for the second blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 2')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post2-comments')">
+                    <input type="text" id="post2-name" placeholder="Your name" required>
+                    <textarea id="post2-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post2-comments"></div>
+            </section>
+        </article>
+        <article id="post3" class="blog-post" data-category="Product3">
+            <h2>Post Title 3</h2>
+            <p>Date: 2024-07-03</p>
+            <img src="placeholder3.jpg" alt="Image for Post 3">
+            <p>Content for the third blog post...</p>
+            <div class="social-media">
+                <button onclick="share('Post Title 3')">Share</button>
+            </div>
+            <section class="comments">
+                <h3>Comments</h3>
+                <form onsubmit="addComment(event, 'post3-comments')">
+                    <input type="text" id="post3-name" placeholder="Your name" required>
+                    <textarea id="post3-message" placeholder="Your comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="post3-comments"></div>
+
+                
+            </section>
+        </article>
+    
+         
+    </main>
+    <footer>
+        <p>&copy; 2024 My Blog. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
