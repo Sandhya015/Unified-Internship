@@ -1,4 +1,4 @@
-// script.js
+
 
 function filterCategory() {
     const selectedCategory = document.getElementById('product-dropdown').value;
