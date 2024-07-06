@@ -1,17 +1,12 @@
 // script.js
 
-function filterProduct() {
-    const selectedCategory = document.getElementById("product-dropdown").value;
-    const posts = document.querySelectorAll(".blog-post");
-
-    posts.forEach(post => {
-        if (selectedCategory === "" || post.getAttribute("data-category") === selectedCategory) {
-            post.style.display = "block";
-        } else {
-            post.style.display = "none";
-        }
-    });
+function filterCategory() {
+    const selectedCategory = document.getElementById('product-dropdown').value;
+    if (selectedCategory) {
+        window.location.href = selectedCategory;
+    }
 }
+
 
 function searchPosts() {
     const query = document.getElementById("search-bar").value.toLowerCase();
